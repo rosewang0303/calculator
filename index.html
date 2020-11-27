@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+		<link rel="stylesheet" href="index.css">
+	</head>
+	<body>
+		<div id="app">
+		  <div class="wrap">
+		    <input class="result" type="text" v-bind:value="showValue" readonly/>
+		    
+		    <div class="btn-row">
+		      <button class="blue" v-on:click="calc(7)">7</button>
+		      <button class="blue" v-on:click="calc(8)">8</button>
+		      <button class="blue" v-on:click="calc(9)">9</button>
+		      <button v-on:click="calc(' / ')">/</button>
+		    </div>
+		    <div class="btn-row">
+		      <button class="blue" v-on:click="calc(4)">4</button>
+		      <button class="blue" v-on:click="calc(5)">5</button>
+		      <button class="blue" v-on:click="calc(6)">6</button>
+		      <button v-on:click="calc(' * ')">*</button>
+		    </div>
+		    <div class="btn-row">
+		      <button class="blue" v-on:click="calc(1)">1</button>
+		      <button class="blue" v-on:click="calc(2)">2</button>
+		      <button class="blue" v-on:click="calc(3)">3</button>
+		      <button v-on:click="calc(' - ')">-</button>
+		    </div>
+		    <div class="btn-row">
+		      <button class="red" v-on:click="calc('C')">C</button>
+		      <button class="blue" v-on:click="calc(0)">0</button>
+		      <button v-on:click="calc('=')">=</button>
+		      <button v-on:click="calc(' + ')">+</button>
+		    </div>
+		  </div>
+		</div>
+	</body>
+
+	<script>
+		var app = new Vue({
+		    el: '#app',
+		    data: {
+		        showValue: "",
+		        preValue: "",
+		        arithmetic: ""
+		    },
+		    created () {
+		    },
+		    mounted () {
+		    },
+		    methods: {
+		        calc: function(input) {
+		            if(isNaN(this.preValue) == true){
+		                this.showValue = "";
+		            }
+
+		            if(input == " + "){
+		                this.arithmetic = this.showValue + input;
+		                this.preValue = input;
+		            }else if(input == " - "){
+		                this.arithmetic = this.showValue + input;
+		                this.preValue = input;
+		            }else if(input == " * "){
+		                this.arithmetic = this.showValue + input;
+		                this.preValue = input;
+		            }else if(input == " / "){
+		                this.arithmetic = this.showValue + input;
+		                this.preValue = input;
+		            }else if(input == "="){
+		                this.showValue = eval(this.arithmetic.toString() + this.showValue.toString());
+		                this.arithmetic = "";
+		                this.preValue = this.showValue;
+		            }else if(input == "C"){
+		                this.arithmetic = "";
+		                this.showValue = "";
+		                this.preValue = "";
+		            }else {
+		                this.showValue = this.showValue.toString() + input.toString();
+		                this.preValue = input;
+		            }
+		        }
+		    },
+		    components: {
+		    }
+		})
+	</script>
+</html>

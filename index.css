@@ -1,0 +1,100 @@
+:root {
+    --dark-white: #dfe4ea;
+    --grey-white: #f0f0f0;
+    --white: #F7F7F7;
+    --black: #2B2B2B;
+    --blue: #99B8C4;
+    --yellow: #F9DB61;
+    --light-blue: #C7EFFF;
+    --dark-blue: #33495F;
+    --dark-red: #DB6F65;
+    --red: #ffa69e;
+}
+
+* {
+    position: relative;
+}
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: Consolas;
+    /*   font-family: monospace; */
+    color: var(--black);
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+}
+.wrap {
+    width: 300px;
+    height: 400px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: var(--dark-white);
+    -webkit-filter: drop-shadow(rgba(0, 0, 0, 0.15) 5px 10px 2px);
+    filter: drop-shadow(rgba(0, 0, 0, 0.15) 5px 10px 2px);
+}
+
+input {
+    outline: none;
+    border: none;
+}
+input.result {
+    border-radius: 5px;
+    text-align: right;
+    font-size: 24px;
+    background-color: var(--grey-white);
+    padding: 15px 20px;
+    width: 70%;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+}
+.btn-row {
+    width: 83%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 5px;
+}
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--white);
+    width: 23%;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: var(--dark-blue);
+    border: 1px solid var(--dark-blue);
+    border-radius: 5px;
+    padding: 15px 20px;
+    margin: 0 auto;
+    -webkit-filter: drop-shadow(rgba(0, 0, 0, 0.15) 0px 5px 5px);
+    filter: drop-shadow(rgba(0, 0, 0, 0.15) 0px 5px 5px);
+}
+button:focus {
+    border: 1px solid var(--blue);
+}
+button.red {
+    background-color: var(--dark-red);
+    border: 1px solid var(--dark-red);
+}
+button.red:focus {
+    border: 1px solid var(--red);
+}
+button.blue {
+    background-color: var(--blue);
+    border: 1px solid var(--blue);
+}
+button.blue:focus {
+    border: 1px solid var(--light-blue);
+}
